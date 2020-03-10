@@ -65,22 +65,22 @@ exception_no_exception:
 clear_exceptions:
 
 # # overlap literal translations
-# overlap_bothEmpty: '"bothEmpty"'
-# overlap_firstEmpty: '"firstEmpty"'
-# overlap_secondEmpty: '"secondEmpty"'
-# overlap_before: '"before"'
-# overlap_meets: '"meets"'
-# overlap_overlaps: '"overlaps"'
-# overlap_starts: '"starts"'
-# overlap_containedBy: '"containedBy"'
-# overlap_finishes: '"finishes"'
-# overlap_equals: '"equals"'
-# overlap_finishedBy: '"finishedBy"'
-# overlap_contains: '"contains"'
-# overlap_startedBy: '"startedBy"'
-# overlap_overlappedBy: '"overlappedBy"'
-# overlap_metBy: '"metBy"'
-# overlap_after: '"after"'
+overlap_bothEmpty: '"bothEmpty"'
+overlap_firstEmpty: '"firstEmpty"'
+overlap_secondEmpty: '"secondEmpty"'
+overlap_before: '"before"'
+overlap_meets: '"meets"'
+overlap_overlaps: '"overlaps"'
+overlap_starts: '"starts"'
+overlap_containedBy: '"containedBy"'
+overlap_finishes: '"finishes"'
+overlap_equals: '"equals"'
+overlap_finishedBy: '"finishedBy"'
+overlap_contains: '"contains"'
+overlap_startedBy: '"startedBy"'
+overlap_overlappedBy: '"overlappedBy"'
+overlap_metBy: '"metBy"'
+overlap_after: '"after"'
 #
 # # Cancellative addition and subtraction
 op_cancelMinus*: cancelminus($ARG1, $ARG2)
@@ -211,7 +211,7 @@ op_isMember*: |
 #    ($ARG1 ∈ $ARG2)
 
 # # Extended interval comparison
-# op_overlap*: overlap ($ARG1, $ARG2)
+op_overlap*: overlap ($ARG1, $ARG2)
 #
 # # Reverse-mode elementary functions
 # op_absRev*: absrev ($ARG1)
