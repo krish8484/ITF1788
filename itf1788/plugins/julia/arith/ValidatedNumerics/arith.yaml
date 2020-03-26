@@ -33,7 +33,7 @@ entire_interval_double: entireinterval(Float64)
 decorated_empty_interval_double: DecoratedInterval(∅, $DEC)
 decorated_entire_interval_double: DecoratedInterval(entireinterval(Float64), $DEC)
 inf_sup_interval_double: Interval($ARG1, $ARG2)
-# decorated_inf_sup_interval_double: DecoratedInterval( $ARG1, $ARG2, $DEC )
+decorated_inf_sup_interval_double: DecoratedInterval( $ARG1, $ARG2, $DEC )
 decorated_inf_sup_interval_double: DecoratedInterval(Interval($ARG1, $ARG2), $DEC)
 
 # interval decorators
@@ -64,25 +64,25 @@ exception_no_exception:
 # Cleanup any previous signaled exceptions
 clear_exceptions:
 
-# # overlap literal translations
-# overlap_bothEmpty: '"bothEmpty"'
-# overlap_firstEmpty: '"firstEmpty"'
-# overlap_secondEmpty: '"secondEmpty"'
-# overlap_before: '"before"'
-# overlap_meets: '"meets"'
-# overlap_overlaps: '"overlaps"'
-# overlap_starts: '"starts"'
-# overlap_containedBy: '"containedBy"'
-# overlap_finishes: '"finishes"'
-# overlap_equals: '"equals"'
-# overlap_finishedBy: '"finishedBy"'
-# overlap_contains: '"contains"'
-# overlap_startedBy: '"startedBy"'
-# overlap_overlappedBy: '"overlappedBy"'
-# overlap_metBy: '"metBy"'
-# overlap_after: '"after"'
+# overlap literal translations
+overlap_bothEmpty: '"bothEmpty"'
+overlap_firstEmpty: '"firstEmpty"'
+overlap_secondEmpty: '"secondEmpty"'
+overlap_before: '"before"'
+overlap_meets: '"meets"'
+overlap_overlaps: '"overlaps"'
+overlap_starts: '"starts"'
+overlap_containedBy: '"containedBy"'
+overlap_finishes: '"finishes"'
+overlap_equals: '"equals"'
+overlap_finishedBy: '"finishedBy"'
+overlap_contains: '"contains"'
+overlap_startedBy: '"startedBy"'
+overlap_overlappedBy: '"overlappedBy"'
+overlap_metBy: '"metBy"'
+overlap_after: '"after"'
 #
-# # Cancellative addition and subtraction
+# Cancellative addition and subtraction
 op_cancelMinus*: cancelminus($ARG1, $ARG2)
 op_cancelPlus*: cancelplus($ARG1, $ARG2)
 
@@ -90,19 +90,19 @@ op_cancelPlus*: cancelplus($ARG1, $ARG2)
 op_intersection*: |
     intersect($ARG1, $ARG2)
     ∩($ARG1, $ARG2)
-#   ($ARG1 ∩ $ARG2)
+    ($ARG1 ∩ $ARG2)
 op_convexHull*: |
     hull($ARG1, $ARG2)
     ∪($ARG1, $ARG2)
-#   ($ARG1 ∪ $ARG2)
+    ($ARG1 ∪ $ARG2)
 
 # Constructors
 op_b-numsToInterval*: "Interval($ARG1, $ARG2)"
 op_d-numsToInterval*: "DecoratedInterval($ARG1, $ARG2)"
 op_b-textToInterval*: "@interval($ARG1)"
 op_d-textToInterval*: "@decorated($ARG1)"
-# op_setDec*: "DecoratedInterval($ARG1, $ARG2)"
-# op_newDec*: "@decorated($ARG1)"
+op_setDec*: "DecoratedInterval($ARG1, $ARG2)"
+op_newDec*: "@decorated($ARG1)"
 
 # Basic operations
 op_pos*: +$ARG1
@@ -192,14 +192,14 @@ op_subset*: ⊆($ARG1, $ARG2)
 op_interior*: |
     ⪽($ARG1, $ARG2)
     isinterior($ARG1, $ARG2)
-#    ($ARG1 ⪽ $ARG2)
+    ($ARG1 ⪽ $ARG2)
 op_disjoint*: isdisjoint($ARG1, $ARG2)
 op_isEmpty*: isempty($ARG1)
 op_isEntire*: isentire($ARG1)
 op_isNaI*: isnai($ARG1)
 op_less*: |
     ≤($ARG1, $ARG2)
-#    ($ARG1 ≤ $ARG2)
+    ($ARG1 ≤ $ARG2)
 op_strictLess*: <($ARG1, $ARG2)
 op_precedes*: precedes($ARG1, $ARG2)
 op_strictPrecedes*: strictprecedes($ARG1, $ARG2)
@@ -208,72 +208,72 @@ op_isSingleton*: isthin($ARG1)
 op_isMember*: |
     ∈($ARG1, $ARG2)
     in($ARG1, $ARG2)
-#    ($ARG1 ∈ $ARG2)
+    ($ARG1 ∈ $ARG2)
 
-# # Extended interval comparison
-# op_overlap*: overlap ($ARG1, $ARG2)
-#
-# # Reverse-mode elementary functions
-# op_absRev*: absrev ($ARG1)
-# op_absRevBin*: absrev ($ARG1, $ARG2)
-# op_sqrRev*: sqrrev ($ARG1)
-# op_sqrRevBin*: sqrrev ($ARG1, $ARG2)
-# op_pownRev*: pownrev ($ARG1, $ARG2)
-# op_pownRevBin*: pownrev ($ARG1, $ARG2, $ARG3)
-# op_sinRev*: sinrev ($ARG1)
-# op_sinRevBin*: sinrev ($ARG1, $ARG2)
-# op_cosRev*: cosrev ($ARG1)
-# op_cosRevBin*: cosrev ($ARG1, $ARG2)
-# op_tanRev*: tanrev ($ARG1)
-# op_tanRevBin*: tanrev ($ARG1, $ARG2)
-# op_coshRev*: coshrev ($ARG1)
-# op_coshRevBin*: coshrev ($ARG1, $ARG2)
-# op_mulRev*: mulrev ($ARG1, $ARG2)
-# op_mulRevTen*: mulrev ($ARG1, $ARG2, $ARG3)
-# op_powRev1*: powrev1 ($ARG1, $ARG2, $ARG3)
-# op_powRev2*: powrev2 ($ARG1, $ARG2, $ARG3)
-# op_atan2Rev1*: atan2rev1 ($ARG1, $ARG2, $ARG3)
-# op_atan2Rev2*: atan2rev2 ($ARG1, $ARG2, $ARG3)
-#
-# # Two output division
-# op_mulRevToPair*: |
-#     nthargout(1, 2, @mulrev, $ARG1, $ARG2)
-#     *** next output
-#     nthargout(2, 2, @mulrev, $ARG1, $ARG2)
-#
-# # Recommended forward-mode elementary functions
-# op_rootn*: nthroot ($ARG1, $ARG2)
-# op_expm1*: expm1 ($ARG1)
-# op_logp1*: log1p ($ARG1)
-# op_hypot*: hypot ($ARG1, $ARG2)
-# op_rSqrt*: rsqrt ($ARG1)
-#
-# # Reduction operations
-# op_dot_down*: mpfr_vector_dot_d (-inf, $ARG1, $ARG2)
-# op_dot_up*: mpfr_vector_dot_d (inf, $ARG1, $ARG2)
-# op_dot_zero*: mpfr_vector_dot_d (0, $ARG1, $ARG2)
-# op_dot_nearest*: mpfr_vector_dot_d (0.5, $ARG1, $ARG2)
-#
-# op_sum_down*: mpfr_vector_sum_d (-inf, $ARG1)
-# op_sum_up*: mpfr_vector_sum_d (inf, $ARG1)
-# op_sum_zero*: mpfr_vector_sum_d (0, $ARG1)
-# op_sum_nearest*: mpfr_vector_sum_d (0.5, $ARG1)
-#
-# op_sum_abs_down*: mpfr_vector_sum_d (-inf, abs ($ARG1))
-# op_sum_abs_up*: mpfr_vector_sum_d (inf, abs ($ARG1))
-# op_sum_abs_zero*: mpfr_vector_sum_d (0, abs ($ARG1))
-# op_sum_abs_nearest*: mpfr_vector_sum_d (0.5, abs ($ARG1))
-#
-# op_sum_sqr_down*: mpfr_vector_dot_d (-inf, $ARG1, $ARG1)
-# op_sum_sqr_up*: mpfr_vector_dot_d (inf, $ARG1, $ARG1)
-# op_sum_sqr_zero*: mpfr_vector_dot_d (0, $ARG1, $ARG1)
-# op_sum_sqr_nearest*: mpfr_vector_dot_d (0.5, $ARG1, $ARG1)
-#
-# # Additional operations
-# op_cbrt*: cbrt($ARG1)
-# op_cot*: cot($ARG1)
-# op_coth*: coth($ARG1)
-# op_csc*: csc($ARG1)
-# op_csch*: csch($ARG1)
-# op_sec*: sec($ARG1)
-# op_sech*: sech($ARG1)
+# Extended interval comparison
+op_overlap*: overlap ($ARG1, $ARG2)
+
+# Reverse-mode elementary functions
+op_absRev*: absrev ($ARG1)
+op_absRevBin*: absrev ($ARG1, $ARG2)
+op_sqrRev*: sqrrev ($ARG1)
+op_sqrRevBin*: sqrrev ($ARG1, $ARG2)
+op_pownRev*: pownrev ($ARG1, $ARG2)
+op_pownRevBin*: pownrev ($ARG1, $ARG2, $ARG3)
+op_sinRev*: sinrev ($ARG1)
+op_sinRevBin*: sinrev ($ARG1, $ARG2)
+op_cosRev*: cosrev ($ARG1)
+op_cosRevBin*: cosrev ($ARG1, $ARG2)
+op_tanRev*: tanrev ($ARG1)
+op_tanRevBin*: tanrev ($ARG1, $ARG2)
+op_coshRev*: coshrev ($ARG1)
+op_coshRevBin*: coshrev ($ARG1, $ARG2)
+op_mulRev*: mulrev ($ARG1, $ARG2)
+op_mulRevTen*: mulrev ($ARG1, $ARG2, $ARG3)
+op_powRev1*: powrev1 ($ARG1, $ARG2, $ARG3)
+op_powRev2*: powrev2 ($ARG1, $ARG2, $ARG3)
+op_atan2Rev1*: atan2rev1 ($ARG1, $ARG2, $ARG3)
+op_atan2Rev2*: atan2rev2 ($ARG1, $ARG2, $ARG3)
+
+# Two output division
+op_mulRevToPair*: |
+    nthargout(1, 2, @mulrev, $ARG1, $ARG2)
+    *** next output
+    nthargout(2, 2, @mulrev, $ARG1, $ARG2)
+
+# Recommended forward-mode elementary functions
+op_rootn*: nthroot ($ARG1, $ARG2)
+op_expm1*: expm1 ($ARG1)
+op_logp1*: log1p ($ARG1)
+op_hypot*: hypot ($ARG1, $ARG2)
+op_rSqrt*: rsqrt ($ARG1)
+
+# Reduction operations
+op_dot_down*: mpfr_vector_dot_d (-inf, $ARG1, $ARG2)
+op_dot_up*: mpfr_vector_dot_d (inf, $ARG1, $ARG2)
+op_dot_zero*: mpfr_vector_dot_d (0, $ARG1, $ARG2)
+op_dot_nearest*: mpfr_vector_dot_d (0.5, $ARG1, $ARG2)
+
+op_sum_down*: mpfr_vector_sum_d (-inf, $ARG1)
+op_sum_up*: mpfr_vector_sum_d (inf, $ARG1)
+op_sum_zero*: mpfr_vector_sum_d (0, $ARG1)
+op_sum_nearest*: mpfr_vector_sum_d (0.5, $ARG1)
+
+op_sum_abs_down*: mpfr_vector_sum_d (-inf, abs ($ARG1))
+op_sum_abs_up*: mpfr_vector_sum_d (inf, abs ($ARG1))
+op_sum_abs_zero*: mpfr_vector_sum_d (0, abs ($ARG1))
+op_sum_abs_nearest*: mpfr_vector_sum_d (0.5, abs ($ARG1))
+
+op_sum_sqr_down*: mpfr_vector_dot_d (-inf, $ARG1, $ARG1)
+op_sum_sqr_up*: mpfr_vector_dot_d (inf, $ARG1, $ARG1)
+op_sum_sqr_zero*: mpfr_vector_dot_d (0, $ARG1, $ARG1)
+op_sum_sqr_nearest*: mpfr_vector_dot_d (0.5, $ARG1, $ARG1)
+
+# Additional operations
+op_cbrt*: cbrt($ARG1)
+op_cot*: cot($ARG1)
+op_coth*: coth($ARG1)
+op_csc*: csc($ARG1)
+op_csch*: csch($ARG1)
+op_sec*: sec($ARG1)
+op_sech*: sech($ARG1)
